@@ -9,23 +9,23 @@ const ContactPage = ({ data }) => {
   return (
     <Layout>
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-8">{title}</h1>
-        <div className="flex justify-center">
+        <h1 className="text-4xl font-bold mb-8 text-[#333333]">{title}</h1>
+        <div className="flex justify-center mb-6">
           <img
             src={bild.url}
             alt={bild.title || "Bild"}
-            className="rounded-lg shadow-lg max-w-xs sm:max-w-md "
+            className="rounded-lg shadow-lg max-w-xs sm:max-w-md border-4 border-[#ffcccb]"
           />
         </div>
-        <div className="space-y-6">
+        <div className="space-y-6 text-[#555555]">
           {/* E-post */}
           <div className="flex items-center justify-center space-x-4">
-            <FaEnvelope className="text-blue-500 text-2xl" />
+            <FaEnvelope className="text-[#ff9999] text-2xl" />
             <a
               href={`mailto:${ePost}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg text-gray-700 hover:text-blue-500"
+              className="text-lg hover:text-[#ff6666] transition"
             >
               {ePost}
             </a>
@@ -33,12 +33,12 @@ const ContactPage = ({ data }) => {
 
           {/* GitHub */}
           <div className="flex items-center justify-center space-x-4">
-            <FaGithub className="text-gray-900 text-2xl" />
+            <FaGithub className="text-gray-800 text-2xl" />
             <a
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg text-gray-700 hover:text-gray-900"
+              className="text-lg hover:text-[#555555] transition"
             >
               GitHub
             </a>
@@ -46,12 +46,12 @@ const ContactPage = ({ data }) => {
 
           {/* LinkedIn */}
           <div className="flex items-center justify-center space-x-4">
-            <FaLinkedin className="text-blue-700 text-2xl" />
+            <FaLinkedin className="text-[#0077b5] text-2xl" />
             <a
               href={linkedIn}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg text-gray-700 hover:text-blue-700"
+              className="text-lg hover:text-[#005f8c] transition"
             >
               LinkedIn
             </a>

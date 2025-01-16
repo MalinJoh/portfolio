@@ -8,16 +8,16 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="text-center space-y-6">
-        <h1 className="text-4xl font-bold">{title}</h1>
-        <div className="prose max-w-lg mx-auto text-[#333333] leading-relaxed">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-[#333333] mb-6">{title}</h1>
+        <div className="prose prose-lg text-[#333333] mx-auto mb-6">
           <ReactMarkdown>{presentationstext?.presentationstext}</ReactMarkdown>
         </div>
-        <div className="max-w-xs mx-auto">
+        <div className="flex justify-center">
           <img
             src={bild.url}
             alt={bild.title || "Bild"}
-            className="rounded-full shadow-lg"
+            className="rounded-lg shadow-md max-w-sm"
           />
         </div>
       </div>

@@ -20,8 +20,8 @@ const PortfolioItem = ({ data }) => {
 
   return (
     <Layout>
-      <h1 className="text-center text-4xl font-bold mb-8">{title}</h1>
-      <div className="prose mx-auto text-[#333333] leading-relaxed mb-12">
+      <h1 className="text-center text-4xl font-bold mb-8 text-[#333333]">{title}</h1>
+      <div className="prose mx-auto text-[#555555] leading-relaxed mb-12">
         <ReactMarkdown>{beskrivningLong?.beskrivningLong}</ReactMarkdown>
       </div>
       {bildbilder && (
@@ -29,7 +29,7 @@ const PortfolioItem = ({ data }) => {
           {bildbilder.map((bild) => (
             <div
               key={bild.url}
-              className="rounded-lg shadow-md cursor-pointer"
+              className="rounded-lg shadow-md cursor-pointer border border-[#ffcccb]"
               onClick={() => openOverlay(bild)}
             >
               <img
@@ -61,7 +61,7 @@ const PortfolioItem = ({ data }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-[#ffe4c4] text-[#333333] px-6 py-3 rounded-lg shadow-lg hover:bg-[#ffcccb] transition"
+            className="inline-block bg-[#ff9999] text-white px-6 py-3 rounded-lg shadow-lg hover:bg-[#ffcccb] transition"
           >
             Besök projektet
           </a>
