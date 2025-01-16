@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <h1>{title}</h1>
-      <div>
+      <div className="bg-blue-500 text-white p-4">
         <ReactMarkdown>{presentationstext?.presentationstext || "Ingen presentationstext tillgänglig."}</ReactMarkdown>
       </div>
       <div>
