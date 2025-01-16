@@ -9,8 +9,8 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-[#333333] mb-6">{title}</h1>
-        <div className="prose prose-lg text-[#333333] mx-auto mb-6">
+        <h1 className="text-4xl font-bold text-[#333333] mb-6">Malin</h1>
+        <div className="prose prose-lg text-[#333333] mx-auto mb-6 max-w-5xl">
           <ReactMarkdown>{presentationstext?.presentationstext}</ReactMarkdown>
         </div>
         <div className="flex justify-center">
