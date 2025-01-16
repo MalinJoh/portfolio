@@ -1,17 +1,40 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/layout"
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
 
+const IndexPage = ({ data }) => {
+  const { title, presentationstext, bild } = data.contentfulOmMig;
 
-//react-component
-//alla componenter under /src/pages blir automatiskt sidor
-//sidans namn = namnet på javascript-filen (dock - index.js = sajtens första sida)
-const IndexPage = () => (
-  <Layout>
-    <Link to="/portfolio">Se min portfolio</Link>
-  </Layout>
-)
-//denna konstant sätter titeln på sidan
-export const Head = () => <title>Home Page</title>
+  return (
+    <Layout>
+      <h1>{title}</h1>
+      <p>
+        {/* Kontrollera om presentationstext är null */}
+        {presentationstext?.presentationstext || "Ingen presentationstext tillgänglig."}
+      </p>
+      <div>
+        <img
+          src={bild.url}
+          alt={bild.title || "Bild"}
+          style={{ maxWidth: "100%", height: "auto", display: "block" }}
+        />
+        {bild.title && <p>{bild.title}</p>}
+      </div>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query {
+    contentfulOmMig(slug: { eq: "startsida" }) {
+      title
+      presentationstext {presentationstext}
+      bild {
+        url
+        title
+      }
+    }
+  }
+`;
 
 export default IndexPage;

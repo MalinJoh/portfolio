@@ -1,17 +1,34 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { graphql, Link } from "gatsby";
+import Layout from "../components/layout";
 
-import Layout from "../components/layout"
+const PortfolioPage = ({ data }) => {
+  const projects = data.allContentfulPortfolioItem.nodes;
 
-//sidans namn blir portfolio efter namnet på javascript-filen
-const SecondPage = () => (
-  <Layout>
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+  return (
+    <Layout>
+      <h1>Portfolio</h1>
+      <ul>
+        {projects.map((project) => (
+          <li key={project.slug}>
+            <h2>{project.title}</h2>
+            <Link to={`/portfolio/${project.slug}`}>Se projekt</Link>
+          </li>
+        ))}
+      </ul>
+    </Layout>
+  );
+};
 
-export const Head = () => <title>Portfolio Page</title>
+export const query = graphql`
+  query {
+    allContentfulPortfolioItem {
+      nodes {
+        title
+        slug
+      }
+    }
+  }
+`;
 
-export default SecondPage
+export default PortfolioPage;
