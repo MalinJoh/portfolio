@@ -8,17 +8,21 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <h1>{title}</h1>
-      <div className="bg-blue-500 text-white p-4">
-        <ReactMarkdown>{presentationstext?.presentationstext || "Ingen presentationstext tillgänglig."}</ReactMarkdown>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-extrabold text-gray-900">{title}</h1>
       </div>
-      <div>
+      <div className="max-w-3xl mx-auto mb-12">
+        <ReactMarkdown className="prose prose-lg text-gray-700 leading-relaxed">
+          {presentationstext?.presentationstext || "Ingen presentationstext tillgänglig."}
+        </ReactMarkdown>
+      </div>
+      <div className="flex flex-col items-center">
         <img
           src={bild.url}
           alt={bild.title || "Bild"}
-          style={{ maxWidth: "100%", height: "auto", display: "block" }}
+          className="rounded-lg shadow-lg w-full max-w-md sm:max-w-lg mb-6"
         />
-        {bild.title && <p>{bild.title}</p>}
+        {bild.title && <p className="text-gray-600 text-lg italic">{bild.title}</p>}
       </div>
     </Layout>
   );

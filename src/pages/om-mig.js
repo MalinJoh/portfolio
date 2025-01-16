@@ -8,21 +8,23 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <h1>{title}</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-gray-900">{title}</h1>
+      </div>
 
-      {/* Rendera markdown-innehåll */}
-      <div>
-        <ReactMarkdown>
+      {/* Presentationstext */}
+      <div className="max-w-3xl mx-auto mb-12">
+        <ReactMarkdown className="prose prose-lg text-gray-700 leading-relaxed">
           {presentationstext?.presentationstext || "Ingen presentationstext tillgänglig."}
         </ReactMarkdown>
       </div>
 
-      {/* Rendera bild */}
-      <div>
+      {/* Bild */}
+      <div className="flex justify-center">
         <img
           src={bild.url}
           alt={bild.title || "Bild"}
-          style={{ maxWidth: "100%", height: "auto", display: "block" }}
+          className="rounded-lg shadow-lg max-w-xs sm:max-w-md"
         />
       </div>
     </Layout>
