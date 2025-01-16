@@ -4,12 +4,19 @@ import Layout from "../components/layout";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const ContactPage = ({ data }) => {
-  const { title, ePost, github, linkedIn } = data.contentfulKontaktuppgifter;
+  const { title, ePost, github, linkedIn, bild } = data.contentfulKontaktuppgifter;
 
   return (
     <Layout>
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-8">{title}</h1>
+        <div className="flex justify-center">
+          <img
+            src={bild.url}
+            alt={bild.title || "Bild"}
+            className="rounded-lg shadow-lg max-w-xs sm:max-w-md "
+          />
+        </div>
         <div className="space-y-6">
           {/* E-post */}
           <div className="flex items-center justify-center space-x-4">
@@ -59,6 +66,9 @@ export const query = graphql`
   query {
     contentfulKontaktuppgifter(slug: { eq: "kontakta-mig" }) {
       title
+      bild {
+        url
+      }
       ePost
       github
       linkedIn
