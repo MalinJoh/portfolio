@@ -1,31 +1,43 @@
 import React from "react";
 import { graphql } from "gatsby";
+import ReactMarkdown from "react-markdown";
 import Layout from "../components/layout";
 
 const PortfolioItem = ({ data }) => {
-  const { title, beskrivningLong, bildbilder, link } =
-    data.contentfulPortfolioItem;
+  const { title, beskrivningLong, bildbilder, link } = data.contentfulPortfolioItem;
 
   return (
     <Layout>
       <h1>{title}</h1>
-      <p><strong>Beskrivning:</strong> {beskrivningLong?.beskrivningLong || "Ingen beskrivning tillgänglig."}</p>
 
+      {/* Rendera markdown i beskrivningLong */}
+      <div>
+        <strong>Beskrivning:</strong>
+        {beskrivningLong?.beskrivningLong ? (
+          <ReactMarkdown>{beskrivningLong.beskrivningLong}</ReactMarkdown>
+        ) : (
+          <p>Ingen beskrivning tillgänglig.</p>
+        )}
+      </div>
+
+      {/* Rendera bilder */}
       {bildbilder && bildbilder.length > 0 && (
         <div>
           <h2>Bilder</h2>
           {bildbilder.map((bild, index) => (
-            <div key={index}>
+            <div key={index} style={{ marginBottom: "1rem" }}>
               <p>{bild.description}</p>
               <img
                 src={bild.url}
                 alt={bild.title || "Bild"}
-                style={{ maxWidth: "100%", marginBottom: "1rem" }}
+                style={{ maxWidth: "100%", height: "auto" }}
               />
             </div>
           ))}
         </div>
       )}
+
+      {/* Rendera länk */}
       {link && (
         <p>
           <strong>Länk:</strong>{" "}

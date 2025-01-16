@@ -1,14 +1,28 @@
-import * as React from "react"
+import React from "react";
+import { graphql, Link } from "gatsby";
+import Layout from "../components/layout";
 
-import Layout from "../components/layout"
+const NotFoundPage = ({ data }) => {
+  const { pageNotFound, information } = data.contentful404Sida;
 
-//i dev mode overridas denna sida av en inbyggd 404-sida
-const NotFoundPage = () => (
-  <Layout>
-    <h1>404: Not Found</h1>
-  </Layout>
-)
+  return (
+    <Layout>
+      <h1>{pageNotFound}</h1>
+      <p>{information}</p>
+      <p>
+        <Link to="/">Gå tillbaka till startsidan</Link>
+      </p>
+    </Layout>
+  );
+};
 
-export const Head = () => <title>Portfolio Page</title>
+export const query = graphql`
+  query {
+    contentful404Sida(slug: { eq: "sidan-hittades-ej" }) {
+      pageNotFound
+      information
+    }
+  }
+`;
 
-export default NotFoundPage
+export default NotFoundPage;
