@@ -12,7 +12,7 @@ const NotFoundPage = ({ data }) => {
         <p className="text-lg text-gray-700">{information}</p>
         <Link
           to="/"
-          className="bg-blue-500 text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-colors duration-300"
+          className="bg-[#ff9999] text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:bg-[#ffcccb] transition"
         >
           Gå tillbaka till startsidan
         </Link>
