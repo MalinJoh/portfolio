@@ -8,17 +8,24 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-[#333333] mb-6">Malin</h1>
-        <div className="prose prose-lg text-[#333333] mx-auto mb-6 max-w-5xl">
-          <ReactMarkdown>{presentationstext?.presentationstext}</ReactMarkdown>
-        </div>
-        <div className="flex justify-center">
-          <img
-            src={bild.url}
-            alt={bild.title || "Bild"}
-            className="rounded-lg shadow-md max-w-sm"
-          />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-24">
+          {/* Text Section */}
+          <div className="prose prose-lg text-[#333333] max-w-xl text-center md:text-left">
+            <div className="mb-8">
+              <h1 className="text-5xl font-bold text-[#333333] mb-6">Frontend developer</h1>
+            </div>
+            <ReactMarkdown>{presentationstext?.presentationstext}</ReactMarkdown>
+          </div>
+
+          {/* Image Section */}
+          <div className="flex-shrink-0 md:self-start">
+            <img
+              src={bild.url}
+              alt={bild.title || "Bild"}
+              className="rounded-lg shadow-md max-w-[150px] md:max-w-[200px]"
+            />
+          </div>
         </div>
       </div>
     </Layout>
