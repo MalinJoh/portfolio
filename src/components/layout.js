@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
             </Link>
           </div>
 
-          {/* Hamburger Menu for Mobile */}
+          {/* Hamburgermeny för mobil */}
           <div className="md:hidden">
             <button
               id="mobile-menu-button"
@@ -76,7 +76,7 @@ const Layout = ({ children }) => {
 
       </footer>
     </div>
-  );
-};
+  )
+}
 
 export default Layout;

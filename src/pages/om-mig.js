@@ -3,11 +3,13 @@ import { graphql } from "gatsby";
 import ReactMarkdown from "react-markdown";
 import Layout from "../components/layout";
 
+//Komponent för Om-mig sidan
 const AboutPage = ({ data }) => {
   const { title, presentationstext, bild } = data.contentfulOmMig;
 
   return (
     <Layout>
+      {/* Title */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900">{title}</h1>
       </div>
@@ -28,9 +30,10 @@ const AboutPage = ({ data }) => {
         />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
+// GraphQL-fråga för att hämta data från Contentful
 export const query = graphql`
   query {
     contentfulOmMig(slug: { eq: "om-mig" }) {
@@ -44,6 +47,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 export default AboutPage;

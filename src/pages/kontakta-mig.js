@@ -3,14 +3,18 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
+// Definierar Kontakt-komponenten
 const ContactPage = ({ data }) => {
-  const { title, ePost, github, linkedIn, bild } = data.contentfulKontaktuppgifter;
+  const { title, ePost, github, linkedIn, bild } = data.contentfulKontaktuppgifter
 
   return (
+
     <Layout>
       <div className="text-center">
+        {/* Titel */}
         <h1 className="text-4xl font-bold mb-8 text-[#333333]">{title}</h1>
         <div className="flex justify-center mb-6">
+          {/* Bild */}
           <img
             src={bild.url}
             alt={bild.title || "Bild"}
@@ -18,7 +22,7 @@ const ContactPage = ({ data }) => {
           />
         </div>
         <div className="space-y-6 text-[#555555]">
-          {/* E-post */}
+          {/* e-postadress med ikon */}
           <div className="flex items-center justify-center space-x-4">
             <FaEnvelope className="text-[#ff9999] text-2xl" />
             <a
@@ -31,7 +35,7 @@ const ContactPage = ({ data }) => {
             </a>
           </div>
 
-          {/* GitHub */}
+          {/* GitHub-länk med ikon */}
           <div className="flex items-center justify-center space-x-4">
             <FaGithub className="text-gray-800 text-2xl" />
             <a
@@ -44,7 +48,7 @@ const ContactPage = ({ data }) => {
             </a>
           </div>
 
-          {/* LinkedIn */}
+          {/* LinkedIn-länk med ikon */}
           <div className="flex items-center justify-center space-x-4">
             <FaLinkedin className="text-[#0077b5] text-2xl" />
             <a
@@ -59,9 +63,10 @@ const ContactPage = ({ data }) => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
+// GraphQL-fråga för att hämta uppgifter från Contentful
 export const query = graphql`
   query {
     contentfulKontaktuppgifter(slug: { eq: "kontakta-mig" }) {
@@ -74,6 +79,6 @@ export const query = graphql`
       linkedIn
     }
   }
-`;
+`
 
 export default ContactPage;
