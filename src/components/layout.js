@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-
+// Layout komponenten för alla sidor
 const Layout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col bg-[#fdf0e6] text-[#333333]">
@@ -71,7 +71,7 @@ const Layout = ({ children }) => {
       {/* Footer */}
       <footer className="bg-[#ffcccb] text-[#333333] text-center py-6 shadow-inner">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Malin Johansson. Alla rättigheter förbehållna.
+          &copy; {new Date().getFullYear()} Malin Johansson, Frontend deveoper.
         </p>
 
       </footer>

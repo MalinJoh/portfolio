@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 
-// Definierar en komponent för 404-sidan
+// Komponenten för 404-sidan
 const NotFoundPage = ({ data }) => {
   const { pageNotFound, information } = data.contentful404Sida;
 

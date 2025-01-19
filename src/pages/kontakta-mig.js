@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
-// Definierar Kontakt-komponenten
+// Kontakt komponenten
 const ContactPage = ({ data }) => {
   const { title, ePost, github, linkedIn, bild } = data.contentfulKontaktuppgifter
 

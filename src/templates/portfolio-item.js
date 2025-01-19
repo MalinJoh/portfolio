@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import ReactMarkdown from "react-markdown";
 import Layout from "../components/layout";
 
-// Komponent för att visa en portfolio-item
+// Komponent för att visa ett portfolio-item
 const PortfolioItem = ({ data }) => {
   const { title, beskrivningLong, bildbilder, link } = data.contentfulPortfolioItem;
 
