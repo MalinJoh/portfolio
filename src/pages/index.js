@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+      <div className="flex items-center justify-center min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-center gap-24">
           {/* Textsektion */}
           <div className="prose prose-lg text-[#333333] max-w-xl text-center md:text-left">
